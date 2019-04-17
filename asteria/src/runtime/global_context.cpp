@@ -17,6 +17,7 @@
 #include "../library/bindings_array.hpp"
 #include "../library/bindings_numeric.hpp"
 #include "../library/bindings_filesystem.hpp"
+#include "../library/bindings_io.hpp"
 #include "../utilities.hpp"
 
 namespace Asteria {
@@ -61,6 +62,7 @@ void Global_Context::initialize(API_Version version)
         { api_version_0001_0000,  "array",       create_bindings_array       },
         { api_version_0001_0000,  "numeric",     create_bindings_numeric     },
         { api_version_0001_0000,  "filesystem",  create_bindings_filesystem  },
+        { api_version_0001_0000,  "io",          create_bindings_io          },
       };
 #ifdef ROCKET_DEBUG
     ROCKET_ASSERT(std::is_sorted(std::begin(s_ymods), std::end(s_ymods), [&](const Module& lhs, const Module& rhs) { return lhs.version < rhs.version;  }));
